@@ -232,7 +232,7 @@
     <Compile Include="commands\GMCommands\titlegm.cs" />
     <Compile Include="commands\GMCommands\walk.cs" />
     <Compile Include="commands\GMCommands\weather.cs" />
-    <Compile Include="commands\PlayerCommands\go.cs" />
+    <Compile Include="commands\GMCommands\go.cs" />
     <Compile Include="commands\RefreshCommandAttribute.cs" />
     <Compile Include="commands\PlayerCommands\advice.cs" />
     <Compile Include="commands\PlayerCommands\advisor.cs" />

@@ -15,7 +15,7 @@ namespace DOL.GS.Commands
 {
     [CmdAttribute(
         "&ps", //command to handle
-        ePrivLevel.Player, //minimum privelege level
+        ePrivLevel.GM, //minimum privelege level
         "ps [ID]", //command description
         "'/ps ID <SoundID> usable code for play sound are: player.Out.SendSoundEffect(ID, 0, 0, 0, 0, 0); ")] //usage
     public class PlaySoundIDCommandHandler : AbstractCommandHandler, ICommandHandler
@@ -50,7 +50,7 @@ namespace DOL.GS.Commands
 namespace DOL.GS.Commands
 {
 	[CmdAttribute("&go",
-        ePrivLevel.Player,
+        ePrivLevel.GM,
         "Commands.Jump.Information",
         "/go <playername> ex. /go whria"
 		)]

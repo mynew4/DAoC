@@ -66,47 +66,14 @@ namespace DOL.GS
 			if (!base.Interact(player))
 				return false;
 
-			String intro = String.Format("Greetings. I can channel the energies of this place to send you {0} {1} {2} {3} {4} {5} {6}",
+			String intro = String.Format("Greetings. I can channel the energies of this place to send you {0} {1} {2} {3} {4}",
 			                             "to far away lands. If you wish to fight in the Frontiers I can send you to [Forest Sauvage] or to the",
-			                             "border keeps [Castle Sauvage] and [Snowdonia Fortress]. Maybe you wish to undertake the Trials of",
-			                             "Atlantis in [Oceanus] haven or wish to visit the harbor of [Gothwaite] and the [Shrouded Isles]?",
-			                             "You could explore the [Avalon Marsh] or perhaps you would prefer the comforts of the [housing] regions.",
+			                             "border keeps [Castle Sauvage] and [Snowdonia Fortress]. Maybe you wish to visit the harbor of [Gothwaite]?",
+			                             "You could explore the [Avalon Marsh] or perhaps you would prefer the comforts of the [Housing] regions.",
 			                             "Perhaps the fierce [Battlegrounds] are more to your liking or do you wish to meet the citizens inside",
-			                             "the great city of [Camelot] or the [Inconnu Crypt]?",
-			                             "Or perhaps you are interested in porting to our training camp [Holtham]?");
+			                             "the great city of [Camelot]");
 			SayTo(player, intro);
 			return true;
-		}
-
-		/// <summary>
-		/// Player has picked a subselection.
-		/// </summary>
-		/// <param name="player"></param>
-		/// <param name="subSelection"></param>
-		protected override void OnSubSelectionPicked(GamePlayer player, Teleport subSelection)
-		{
-			switch (subSelection.TeleportID.ToLower())
-			{
-				case "shrouded isles":
-					{
-						String reply = String.Format("The isles of Avalon are an excellent choice. {0} {1}",
-						                             "Would you prefer the harbor of [Gothwaite] or perhaps one of the outlying towns",
-						                             "like [Wearyall] Village, Fort [Gwyntell], or Caer [Diogel]?");
-						SayTo(player, reply);
-						return;
-					}
-				case "housing":
-					{
-						String reply = String.Format("I can send you to your [personal] house. If you do {0} {1} {2} {3}",
-						                             "not have a personal house or wish to be sent to the housing [entrance] then you will",
-						                             "arrive just inside the housing area. I can also send you to your [guild] house. If your",
-						                             "guild does not own a house then you will not be transported. You may go to your [Hearth] bind",
-						                             "as well if you are bound inside a house.");
-						SayTo(player, reply);
-						return;
-					}
-			}
-			base.OnSubSelectionPicked(player, subSelection);
 		}
 
 		/// <summary>
@@ -136,7 +103,7 @@ namespace DOL.GS
 				case "castle sauvage":
 					SayTo(player, "Castle Sauvage is what you seek, and Castle Sauvage is what you shall find.");
 					break;
-				case "diogel":
+				case "housing":
 					break;	// No text?
 				case "entrance":
 					break;	// No text?
@@ -145,47 +112,6 @@ namespace DOL.GS
 					break;
 				case "gothwaite":
 					SayTo(player, "The Shrouded Isles await you.");
-					break;
-				case "gwyntell":
-					break;	// No text?
-				case "inconnu crypt":
-					if (player.HasFinishedQuest(typeof(InconnuCrypt)) <= 0)
-					{
-						SayTo(player, String.Format("I may only send those who know the way to this {0} {1}",
-						                            "city. Seek out the path to the city and in future times I will aid you in",
-						                            "this journey."));
-						return;
-					}
-					break;
-				case "oceanus":
-					if (player.Client.Account.PrivLevel < ServerProperties.Properties.ATLANTIS_TELEPORT_PLVL)
-					{
-						SayTo(player, "I'm sorry, but you are not authorized to enter Atlantis at this time.");
-						return;
-					}
-					SayTo(player, "You will soon arrive in the Haven of Oceanus.");
-					break;
-				case "personal":
-					break;
-				case "hearth":
-					break;
-				case "snowdonia fortress":
-					SayTo(player, "Snowdonia Fortress is what you seek, and Snowdonia Fortress is what you shall find.");
-					break;
-					// text for the following ?
-				case "wearyall":
-					break;
-				case "holtham":
-					if (ServerProperties.Properties.DISABLE_TUTORIAL)
-					{
-						SayTo(player,"Sorry, this place is not available for now !");
-						return;
-					}
-					if (player.Level > 15)
-					{
-						SayTo(player,"Sorry, you are far too experienced to enjoy this place !");
-						return;
-					}
 					break;
 				default:
 					SayTo(player, "This destination is not yet supported.");
