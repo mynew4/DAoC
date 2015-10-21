@@ -45,9 +45,10 @@ namespace DOL.GS
 			if (!base.Interact(player))
 				return false;
 
-			String intro = String.Format("Greetings. I can channel the energies of this place to send you {0} {1} {2} {3} {4}",
+			String intro = String.Format("Greetings. I can channel the energies of this place to send you {0} {1} {2} {3} {4} {5}",
 			                             "to far away lands. If you wish to fight in the Frontiers I can send you to [Cruachan Gorge]",
-			                             "of the border keeps [Druim Ligen] and [Druim Cain]. Maybe you wish to visit the Grove of [Domnann]?",
+			                             "of the border keeps [Druim Ligen] and [Druim Cain].",
+                                         "Maybe you wish to visit the Grove of [Domnann]?",
 			                             "Perhaps you would prefer the comforts of the [Housing] regions.",
 			                             "Perhaps the fierce [Battlegrounds] are more to your liking or do you wish to meet the citizens inside",
 			                             "the great city of [Tir na Nog]?");

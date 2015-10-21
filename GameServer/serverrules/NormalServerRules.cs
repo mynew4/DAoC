@@ -36,7 +36,7 @@ namespace DOL.GS.ServerRules
 		{
 			return "standard Normal server rules";
 		}
-
+		
 		/// <summary>
 		/// Invoked on NPC death and deals out
 		/// experience/realm points if needed
@@ -77,8 +77,15 @@ namespace DOL.GS.ServerRules
 				return false;
 			}
 
+            //check group
+				if (attacker.Group != null && attacker.Group.IsInTheGroup(defender))
+				{
+					if (!quiet) MessageToLiving(attacker, "You can't attack your group members.");
+					return false;
+				}
+
 			//Don't allow attacks on same realm members on Normal Servers
-			if (attacker.Realm == defender.Realm && !(attacker is GamePlayer && ((GamePlayer)attacker).DuelTarget == defender))
+			if (attacker.CurrentRegionID != 51 && attacker.Realm == defender.Realm && !(attacker is GamePlayer && ((GamePlayer)attacker).DuelTarget == defender))
 			{
 				// allow confused mobs to attack same realm
 				if (attacker is GameNPC && (attacker as GameNPC).IsConfused)
@@ -95,6 +102,13 @@ namespace DOL.GS.ServerRules
 				if(quiet == false) MessageToLiving(attacker, "You can't attack a member of your realm!");
 				return false;
 			}
+
+            //PvE Safe Check
+            if (attacker is GamePlayer && defender is GamePlayer && attacker.CurrentRegionID == 125 && defender.CurrentRegionID == 125)
+            {
+                if (quiet == false) MessageToLiving(attacker, "You can't attack in PvE zone!");
+                return false;
+            }
 
 			return true;
 		}
