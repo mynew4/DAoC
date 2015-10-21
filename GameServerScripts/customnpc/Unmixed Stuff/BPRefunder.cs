@@ -64,11 +64,15 @@ namespace DOL.GS.Scripts
             {
                 can = true;
             }
+			if (item.Name.Contains("Dragonslayer"))
+            {
+                can = true;
+            }
             switch (item.PackageID)
             {
                 case "LabWeaps":
                 case "Artifacts":
-                case "Bounty Jewelry":
+                case "Bounty Jewlery":
                 case "DragonWeapons":
                     can = true;
                     break;

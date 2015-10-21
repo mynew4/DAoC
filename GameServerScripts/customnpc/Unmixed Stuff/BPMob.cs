@@ -43,11 +43,11 @@ public class BPMob : GameNPC
         int basebp = 0;
         if (Level <= 44) { basebp = 1; }
         if (Level == 45) { basebp = 5; }
-        if (Level == 46) { basebp = 6; }
-        if (Level == 47) { basebp = 7; }
-        if (Level == 48) { basebp = 8; }
-        if (Level == 49) { basebp = 9; }
-        if (Level == 50) { basebp = 10; }
+        if (Level == 46) { basebp = 10; }
+        if (Level == 47) { basebp = 12; }
+        if (Level == 48) { basebp = 14; }
+        if (Level == 49) { basebp = 16; }
+        if (Level == 50) { basebp = 20; }
 
         int rewardbp;
         bool isjackpot;

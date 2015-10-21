@@ -77,7 +77,7 @@ namespace DOL.GS.Scripts
             {
 
 
-                player.Out.SendMessage("Congrats on achieving level 50!", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+                player.Out.SendMessage("Congrats on achieving level 50 you lazy bum!", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
                 player.Level = 50;
 
                 return true;
@@ -88,6 +88,11 @@ namespace DOL.GS.Scripts
                 player.Out.SendMessage("Your class is not affected by my magic!", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
             }
 
+            if (str == "Weapons")
+            {
+                
+                return true;
+            }
             return true;
         }
 
